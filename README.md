@@ -1,10 +1,25 @@
-# Blockchain-Based-Property-Registration
+# Property-Identity-Verification-Using-Blockchain
 
 <a href="LICENSE"><img src="https://img.shields.io/static/v1?label=license&message=MIT&color=green"></a>
 <img src="https://img.shields.io/badge/Ethereum-20232A?style=for-the-badge&logo=ethereum&logoColor=white">
 <img src="https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white">
 ## Land Registration using Blockchain
 ## Problem it Solves:
+   Real Estate industry is a very big and complex industry for any person. This situation happens due to factors like number of paper work, frauds, money laundering and generation of black money. Registration and real estate deals take days to months to years to settle. This can cause a huge inconvinience to any individual. We abstract those tedious process and provide safe and secure environment for users to connect and offer deals with potential buyers without worrying about any paperwork. We store everything on chain and therefore there is perfect data integrity and transparency.
+Real Estate inndustry is also a major black money generator industry. Due to low transparency and intermediatary involvement, a large sum of black money cashflows in the market and therefore affecting the nations economy. We tried to minimize that possibility by implmenting on chain communication using Push and on chain dealing so that transparency is maintained and no funny business can be hidden from the eyes of governing bodies.
+
+Challenges I ran into
+
+Polygon ID
+We needed to build a custom issuer portal so that an authority (say government) can issue claims for their holders and send them via email or any other communicating medium. The process up till creation of the issuerID and schema was relatively easier but we faced a lot of difficulty implementing the Verifier contract (ref. ERC20Verifier contract according to the polygon ID docs) on-chain.
+The smart contracts were quite difficult to understand and relied on a number of local imports. Due to which usage of the smart contract was difficult and required a lot of effort to fork it. Finally, we could create a basic working model and generate claims. This was like an achievement for our whole team.
+
+Gnosis Safe
+We thought of implementing Gnosis Safe for renting purposes. The idea was when a person wants to rent a Real Estate Property, the owner can transfer the property to the safe and give credentials to the tenant as well. As it is in the Safe both the users and the tenant can leverage the benefits of the NFTs. We faced issues while implementing the Module and Guard smart contract. The docs for Gnosis Safe felt insufficient for a newcomer like myself. It is very high in complexity and a better documented procedure could have helped a lot. I was able to connect to the Safe SDK and create a Safe for myself but the later steps were quite challenging for me.
+We implemented the contract system using the wallet address but that was not completely enough to validate the user on organization point of view. So for a general validation of user introduced Soul Bond Token(SBT). Which gives a new form of digital identity to all users. Soul bond tokens are Non Transferable erc-721 token which solidifies the ownership of the contract. Integration sbt in the pre made contract was a huge challenge we ran into. Due to which all my transaction was getting reverted. After struggling with it we found that at one place _uri was define as string and other it was defined as memory (array).
+Debugging and validating the smart contract is itself a tedious process of deploying and testing everytime we make any change. To overcome this issue we started using tenderly by forking a polygon
+
+
 1. The elimination of middlemen: The elimination of middlemen or brokers makes the process of land registration less expensive. Brokers who try to defraud uninformed people will be unable to do so any longer. Brokers frequently take a long time to finish procedures, thus our project will help people save time.
 3. A distributed tamper-proof ledger that prohibits ownership fraud.
 4. IPFS is used to store important property registration papers in a secure manner.
